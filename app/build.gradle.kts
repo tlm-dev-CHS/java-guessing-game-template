@@ -45,3 +45,10 @@ tasks.named<Test>("test") {
 tasks.named<JavaExec>("run") {
 	standardInput = System.`in`
 }
+
+tasks.register<JavaExec>("runApp") {
+    group = "application"
+    description = "Runs the App class"
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass.set("java_guessing_game.App")
+}
